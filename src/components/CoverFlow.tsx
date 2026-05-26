@@ -118,23 +118,29 @@ export default function CoverFlow({ games, selectedIndex, theme, respectAspect, 
             } ${
               theme === 'nes' ? 'border-4 border-gray-400 bg-black p-1' : 'rounded-lg shadow-[0_20px_50px_rgba(0,0,0,0.5)]'
             }`}>
-              {/* Blurred reflection layer (behind the image) */}
+              {/* Blurred reflection layer */}
               {theme === 'wii' && (
                 <div
-                  className="absolute inset-0 pointer-events-none"
+                  className="absolute pointer-events-none overflow-hidden"
                   style={{
-                    transform: 'scaleY(-1) translateY(100%)',
-                    filter: `blur(${reflectionBlur}px)`,
-                    opacity: 0.35,
-                    maskImage: 'linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 70%)',
-                    WebkitMaskImage: 'linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 70%)',
+                    top: '100%',
+                    left: 0,
+                    right: 0,
+                    height: '40%',
+                    opacity: 0.4,
                   }}
                 >
                   <img
                     src={game.cover}
                     alt=""
                     aria-hidden="true"
-                    className={`h-full ${respectAspect ? 'w-auto object-contain' : 'w-full object-cover'}`}
+                    className={`w-full h-full object-cover`}
+                    style={{
+                      filter: `blur(${reflectionBlur}px)`,
+                      transform: 'scaleY(-1)',
+                      maskImage: 'linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, transparent 80%)',
+                      WebkitMaskImage: 'linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, transparent 80%)',
+                    }}
                     referrerPolicy="no-referrer"
                   />
                 </div>
