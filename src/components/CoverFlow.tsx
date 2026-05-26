@@ -159,9 +159,7 @@ export default function CoverFlow({ games, selectedIndex, theme, respectAspect, 
                   />
                 </div>
               )}
-                referrerPolicy="no-referrer"
-              />
-              
+
               {/* Active Highlight Selection Box */}
               {isActive && theme === 'wii' && (
                 <motion.div 
