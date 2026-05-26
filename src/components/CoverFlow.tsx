@@ -113,11 +113,39 @@ export default function CoverFlow({ games, selectedIndex, theme, respectAspect, 
             )}
 
             {/* Game Cover Wrapper */}
-            <div className={`relative h-full group overflow-hidden ${
+            <div className={`relative h-full group ${
               respectAspect ? 'w-full' : 'w-full'
             } ${
               theme === 'nes' ? 'border-4 border-gray-400 bg-black p-1' : 'rounded-lg shadow-[0_20px_50px_rgba(0,0,0,0.5)]'
             }`}>
+              {/* Blurred reflection layer */}
+              {theme === 'wii' && (
+                <div
+                  className="absolute pointer-events-none overflow-hidden"
+                  style={{
+                    top: '100%',
+                    left: 0,
+                    right: 0,
+                    height: '100%',
+                    opacity: 0.4,
+                  }}
+                >
+                  <img
+                    src={game.cover}
+                    alt=""
+                    aria-hidden="true"
+                    className={`w-full h-full object-cover`}
+                    style={{
+                      filter: `blur(${reflectionBlur}px)`,
+                      transform: 'scaleY(-1)',
+                      maskImage: 'linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 80%)',
+                      WebkitMaskImage: 'linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 80%)',
+                    }}
+                    referrerPolicy="no-referrer"
+                  />
+                </div>
+              )}
+
               {/* Main cover image */}
               <img 
                 src={game.cover} 
@@ -132,35 +160,7 @@ export default function CoverFlow({ games, selectedIndex, theme, respectAspect, 
                 } : {}}
                 referrerPolicy="no-referrer"
               />
-
-              {/* Reflection: blurred flipped copy of the image */}
-              {theme === 'wii' && (
-                <div
-                  className="absolute pointer-events-none"
-                  style={{
-                    top: '100%',
-                    left: 0,
-                    right: 0,
-                    height: '100%',
-                    transformOrigin: 'top center',
-                  }}
-                >
-                  <img
-                    src={game.cover}
-                    alt=""
-                    aria-hidden="true"
-                    className={`w-full h-full ${respectAspect ? 'object-contain' : 'object-cover'}`}
-                    style={{
-                      filter: `blur(${reflectionBlur}px)`,
-                      transform: 'scaleY(-1)',
-                      maskImage: 'linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, transparent 60%)',
-                      WebkitMaskImage: 'linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, transparent 60%)',
-                    }}
-                    referrerPolicy="no-referrer"
-                  />
-                </div>
-              )}
-
+              
               {/* Active Highlight Selection Box */}
               {isActive && theme === 'wii' && (
                 <motion.div 
