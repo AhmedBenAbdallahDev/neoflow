@@ -1,14 +1,14 @@
 [
   {
-    "id": "SWITCH-ZELDA",
-    "title": "The Legend of Zelda: Breath of the Wild",
+    "id": "SWITCH-TOTK",
+    "title": "The Legend of Zelda: Tears of the Kingdom",
     "platform": "Nintendo Switch",
     "genre": "Open-World Action Adventure",
-    "fileSize": "14.4 GB",
-    "cover": "/media/covers/98521_portrait.jpg",
-    "bg": "/media/backgrounds/98521_bg.jpg",
+    "fileSize": "16.3 GB",
+    "cover": "/media/covers/114116_portrait.jpg",
+    "bg": "/media/backgrounds/114116_bg.jpg",
     "type": "Switch",
-    "romUrl": "/roms/botw.nsp"
+    "romUrl": "/roms/totk.nsp"
   },
   {
     "id": "SWITCH-MARIO",
@@ -16,8 +16,8 @@
     "platform": "Nintendo Switch",
     "genre": "3D Platformer",
     "fileSize": "5.6 GB",
-    "cover": "/media/covers/115789_portrait.jpg",
-    "bg": "/media/backgrounds/115789_bg.jpg",
+    "cover": "/media/covers/42320_portrait.jpg",
+    "bg": "/media/backgrounds/42320_bg.jpg",
     "type": "Switch",
     "romUrl": "/roms/smo.nsp"
   },
@@ -60,8 +60,8 @@
     "platform": "Nintendo Switch",
     "genre": "Fighting / Party",
     "fileSize": "16.0 GB",
-    "cover": "/media/covers/60766_portrait.jpg",
-    "bg": "/media/backgrounds/60766_bg.jpg",
+    "cover": "/media/covers/111829_portrait.jpg",
+    "bg": "/media/backgrounds/111829_bg.jpg",
     "type": "Switch",
     "romUrl": "/roms/smash.nsp"
   }
