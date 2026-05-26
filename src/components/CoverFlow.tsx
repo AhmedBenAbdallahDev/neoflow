@@ -113,14 +113,14 @@ export default function CoverFlow({ games, selectedIndex, theme, respectAspect, 
             )}
 
             {/* Game Cover Wrapper */}
-            <div className={`relative h-full group ${
+            <div className={`relative h-full group overflow-hidden ${
               theme === 'nes' ? 'border-4 border-gray-400 bg-black p-1' : 'rounded-lg shadow-[0_20px_50px_rgba(0,0,0,0.5)]'
             }`}>
               {/* Main cover image */}
               <img 
                 src={game.cover} 
                 alt={game.title}
-                className={`h-full ${
+                className={`relative h-full ${
                   respectAspect ? 'w-auto object-contain' : 'w-full object-cover'
                 } ${
                   theme === 'nes' ? '' : 'rounded-md border-2 border-white/20 shadow-[inset_0_0_20px_rgba(255,255,255,0.2)]'
@@ -131,29 +131,28 @@ export default function CoverFlow({ games, selectedIndex, theme, respectAspect, 
                 referrerPolicy="no-referrer"
               />
               
-              {/* Blurred reflection layer - positioned below the image */}
+              {/* Blurred reflection layer - positioned inside the overflow-hidden wrapper */}
               {theme === 'wii' && (
                 <div
-                  className="absolute pointer-events-none overflow-hidden"
+                  className="absolute pointer-events-none"
                   style={{
                     top: '100%',
                     left: 0,
-                    width: respectAspect ? 'auto' : '100%',
-                    height: '40%',
-                    opacity: 0.4,
+                    right: 0,
+                    height: '50%',
+                    transformOrigin: 'top center',
+                    transform: 'scaleY(-1)',
+                    opacity: 0.35,
+                    filter: `blur(${reflectionBlur}px)`,
+                    maskImage: 'linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 60%)',
+                    WebkitMaskImage: 'linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 60%)',
                   }}
                 >
                   <img
                     src={game.cover}
                     alt=""
                     aria-hidden="true"
-                    className={`h-full ${respectAspect ? 'w-auto object-contain' : 'w-full object-cover'}`}
-                    style={{
-                      filter: `blur(${reflectionBlur}px)`,
-                      transform: 'scaleY(-1)',
-                      maskImage: 'linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 80%)',
-                      WebkitMaskImage: 'linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 80%)',
-                    }}
+                    className={`w-full h-full ${respectAspect ? 'object-contain' : 'object-cover'}`}
                     referrerPolicy="no-referrer"
                   />
                 </div>
