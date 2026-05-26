@@ -192,12 +192,12 @@ export default function App() {
         <div className="flex items-center gap-4">
           <div className="flex items-center gap-2">
             <div className={`w-10 h-10 rounded-full flex items-center justify-center overflow-hidden ${
-              theme === 'nes' ? "bg-red-600" : theme === 'switch' ? "bg-[#e60012]" : "bg-blue-600"
+              theme === 'nes' ? "bg-red-600" : theme === 'switch' ? "bg-[#e60012]" : "bg-transparent"
             }`}>
-              <img src="/icon.png" className="w-6 h-6 object-contain brightness-0 invert" alt="NeoFlow" />
+              <img src="/icon.png" className={`w-full h-full object-contain ${theme !== 'switch' ? '' : 'brightness-0 invert p-2'}`} alt="NeoFlow" />
             </div>
             <h1 className={`text-2xl font-bold tracking-tight ${theme === 'nes' ? 'font-pixel text-xl' : ''}`}>
-              NeoFlow <span className="text-gray-400">BETA</span>
+              NeoFlow <span className="text-gray-400 text-xs font-medium lowercase">alpha-1</span>
             </h1>
           </div>
         </div>
