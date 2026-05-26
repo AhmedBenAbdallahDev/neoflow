@@ -1,0 +1,68 @@
+[
+  {
+    "id": "SWITCH-ZELDA-EXT",
+    "title": "The Legend of Zelda: Breath of the Wild",
+    "platform": "Nintendo Switch",
+    "genre": "Open-World Action Adventure",
+    "fileSize": "14.4 GB",
+    "cover": "https://assets.nintendo.com/image/upload/ar_16:9,c_lpad,w_1200,f_auto,q_auto/v1/ncom/en_US/games/switch/t/the-legend-of-zelda-breath-of-the-wild-switch/hero",
+    "bg": "https://wallpaperaccess.com/full/41565.jpg",
+    "type": "Switch",
+    "romUrl": "/roms/botw.nsp"
+  },
+  {
+    "id": "SWITCH-MARIO-EXT",
+    "title": "Super Mario Odyssey",
+    "platform": "Nintendo Switch",
+    "genre": "3D Platformer",
+    "fileSize": "5.6 GB",
+    "cover": "https://assets.nintendo.com/image/upload/ar_16:9,c_lpad,w_1200,f_auto,q_auto/v1/ncom/en_US/games/switch/s/super-mario-odyssey-switch/hero",
+    "bg": "https://wallpaperaccess.com/full/22374.jpg",
+    "type": "Switch",
+    "romUrl": "/roms/smo.nsp"
+  },
+  {
+    "id": "SWITCH-SMASH-EXT",
+    "title": "Super Smash Bros. Ultimate",
+    "platform": "Nintendo Switch",
+    "genre": "Fighting",
+    "fileSize": "17.3 GB",
+    "cover": "https://assets.nintendo.com/image/upload/ar_16:9,c_lpad,w_1200,f_auto,q_auto/v1/ncom/en_US/games/switch/s/super-smash-bros-ultimate-switch/hero",
+    "bg": "https://wallpaperaccess.com/full/3108225.jpg",
+    "type": "Switch",
+    "romUrl": "/roms/smash.nsp"
+  },
+  {
+    "id": "SWITCH-MK8-EXT",
+    "title": "Mario Kart 8 Deluxe",
+    "platform": "Nintendo Switch",
+    "genre": "Racing",
+    "fileSize": "6.8 GB",
+    "cover": "https://assets.nintendo.com/image/upload/ar_16:9,c_lpad,w_1200,f_auto,q_auto/v1/ncom/en_US/games/switch/m/mario-kart-8-deluxe-switch/hero",
+    "bg": "https://wallpaperaccess.com/full/22380.jpg",
+    "type": "Switch",
+    "romUrl": "/roms/mk8.nsp"
+  },
+  {
+    "id": "SWITCH-METROID-EXT",
+    "title": "Metroid Dread",
+    "platform": "Nintendo Switch",
+    "genre": "Action-Adventure",
+    "fileSize": "4.1 GB",
+    "cover": "https://assets.nintendo.com/image/upload/ar_16:9,c_lpad,w_1200,f_auto,q_auto/v1/ncom/en_US/games/switch/m/metroid-dread-switch/hero",
+    "bg": "https://wallpaperaccess.com/full/2657475.jpg",
+    "type": "Switch",
+    "romUrl": "/roms/metroid.nsp"
+  },
+  {
+    "id": "SWITCH-ACNH-EXT",
+    "title": "Animal Crossing: New Horizons",
+    "platform": "Nintendo Switch",
+    "genre": "Social Simulation",
+    "fileSize": "6.2 GB",
+    "cover": "https://assets.nintendo.com/image/upload/ar_16:9,c_lpad,w_1200,f_auto,q_auto/v1/ncom/en_US/games/switch/a/animal-crossing-new-horizons-switch/hero",
+    "bg": "https://wallpaperaccess.com/full/9334861.jpg",
+    "type": "Switch",
+    "romUrl": "/roms/acnh.nsp"
+  }
+]

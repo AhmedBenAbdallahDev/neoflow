@@ -113,6 +113,24 @@ export default function App() {
     setLoading(false)
   }
 
+  // Load external romset with external URLs for testing
+  const loadExternalRomset = async () => {
+    setLoading(true)
+    try {
+      const response = await fetch('/external-romset.json')
+      if (response.ok) {
+        const data = await response.json()
+        if (Array.isArray(data)) {
+          setGames(data)
+          setSelectedIndex(0)
+        }
+      }
+    } catch (err) {
+      console.error("Failed to load external romset", err)
+    }
+    setLoading(false)
+  }
+
   // Auto-load JSON on startup
   useEffect(() => {
     const loadDefaultGames = async () => {
@@ -470,6 +488,18 @@ export default function App() {
                   </div>
                 </div>
                 )}
+                
+                <div>
+                  <h3 className="text-xs font-bold text-gray-500 uppercase tracking-widest mb-4">Debug Tools</h3>
+                  <div className="grid grid-cols-1 gap-3">
+                    <button 
+                      onClick={loadExternalRomset}
+                      className="p-3 rounded-xl border border-white/10 bg-white/5 text-gray-400 hover:bg-white/10 transition-all text-xs"
+                    >
+                      Load External Romset (Test URLs)
+                    </button>
+                  </div>
+                </div>
 
                 <div>
                   <h3 className="text-xs font-bold text-gray-500 uppercase tracking-widest mb-4">Cover Layout</h3>
