@@ -1,0 +1,68 @@
+[
+  {
+    "id": "SWITCH-ZELDA",
+    "title": "The Legend of Zelda: Breath of the Wild",
+    "platform": "Nintendo Switch",
+    "genre": "Open-World Action Adventure",
+    "fileSize": "14.4 GB",
+    "cover": "https://assets.nintendo.com/image/upload/ar_16:9,c_lpad,w_1200,f_auto,q_auto/v1/ncom/en_US/games/switch/t/the-legend-of-zelda-breath-of-the-wild-switch/hero",
+    "bg": "https://wallpaperaccess.com/full/41565.jpg",
+    "type": "Switch",
+    "romUrl": "/roms/botw.nsp"
+  },
+  {
+    "id": "SWITCH-MARIO",
+    "title": "Super Mario Odyssey",
+    "platform": "Nintendo Switch",
+    "genre": "3D Platformer",
+    "fileSize": "5.6 GB",
+    "cover": "https://assets.nintendo.com/image/upload/ar_16:9,c_lpad,w_1200,f_auto,q_auto/v1/ncom/en_US/games/switch/s/super-mario-odyssey-switch/hero",
+    "bg": "https://wallpaperaccess.com/full/22374.jpg",
+    "type": "Switch",
+    "romUrl": "/roms/smo.nsp"
+  },
+  {
+    "id": "SWITCH-METROID",
+    "title": "Metroid Dread",
+    "platform": "Nintendo Switch",
+    "genre": "Action-Adventure / Metroidvania",
+    "fileSize": "4.1 GB",
+    "cover": "https://assets.nintendo.com/image/upload/ar_16:9,c_lpad,w_1200,f_auto,q_auto/v1/ncom/en_US/games/switch/m/metroid-dread-switch/hero",
+    "bg": "https://wallpaperaccess.com/full/1598448.jpg",
+    "type": "Switch",
+    "romUrl": "/roms/dread.nsp"
+  },
+  {
+    "id": "SWITCH-KART",
+    "title": "Mario Kart 8 Deluxe",
+    "platform": "Nintendo Switch",
+    "genre": "Racing / Party",
+    "fileSize": "6.8 GB",
+    "cover": "https://assets.nintendo.com/image/upload/ar_16:9,c_lpad,w_1200,f_auto,q_auto/v1/ncom/en_US/games/switch/m/mario-kart-8-deluxe-switch/hero",
+    "bg": "https://wallpaperaccess.com/full/41561.jpg",
+    "type": "Switch",
+    "romUrl": "/roms/mk8.nsp"
+  },
+  {
+    "id": "SWITCH-DK",
+    "title": "DKC: Tropical Freeze",
+    "platform": "Nintendo Switch",
+    "genre": "Action Platformer",
+    "fileSize": "6.6 GB",
+    "cover": "https://assets.nintendo.com/image/upload/ar_16:9,c_lpad,w_1200,f_auto,q_auto/v1/ncom/en_US/games/switch/d/donkey-kong-country-tropical-freeze-switch/hero",
+    "bg": "https://wallpaperaccess.com/full/22378.jpg",
+    "type": "Switch",
+    "romUrl": "/roms/dk.nsp"
+  },
+  {
+    "id": "SWITCH-SMASH",
+    "title": "Super Smash Bros. Ultimate",
+    "platform": "Nintendo Switch",
+    "genre": "Fighting / Party",
+    "fileSize": "16.0 GB",
+    "cover": "https://assets.nintendo.com/image/upload/ar_16:9,c_lpad,w_1200,f_auto,q_auto/v1/ncom/en_US/games/switch/s/super-smash-bros-ultimate-switch/hero",
+    "bg": "https://wallpaperaccess.com/full/22380.jpg",
+    "type": "Switch",
+    "romUrl": "/roms/smash.nsp"
+  }
+]
