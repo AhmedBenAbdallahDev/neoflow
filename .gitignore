@@ -2,6 +2,4 @@ node_modules
 dist
 .env
 archive
-public/media/*
-!public/media/.gitkeep
 scripts/fetch-media.js

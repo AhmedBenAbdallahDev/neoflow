@@ -95,6 +95,24 @@ export default function App() {
     setLoading(false)
   }
 
+  // Load demo data from the bundled rom-set.json
+  const loadDummyData = async () => {
+    setLoading(true)
+    try {
+      const response = await fetch('/rom-set.json')
+      if (response.ok) {
+        const data = await response.json()
+        if (Array.isArray(data)) {
+          setGames(data)
+          setSelectedIndex(0)
+        }
+      }
+    } catch (err) {
+      console.error("Failed to load demo data", err)
+    }
+    setLoading(false)
+  }
+
   // Auto-load JSON on startup
   useEffect(() => {
     const loadDefaultGames = async () => {
@@ -240,12 +258,21 @@ export default function App() {
                 <h2 className="text-2xl font-bold mb-2">No Games Found</h2>
                 <p className="text-gray-400">Your library is empty. Import a JSON file containing your ROM set to get started.</p>
               </div>
-              <button 
-                onClick={() => fileInputRef.current?.click()}
-                className="flex items-center gap-2 px-8 py-3 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-lg transition-all hover:scale-105"
-              >
-                <Upload className="w-5 h-5" /> Import Game JSON
-              </button>
+              <div className="flex gap-4">
+                <button 
+                  onClick={() => fileInputRef.current?.click()}
+                  className="flex items-center gap-2 px-8 py-3 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-lg transition-all hover:scale-105"
+                >
+                  <Upload className="w-5 h-5" /> Import Game JSON
+                </button>
+                <button 
+                  onClick={loadDummyData}
+                  className="flex items-center gap-2 px-8 py-3 bg-white/10 hover:bg-white/20 text-white font-bold rounded-lg transition-all border border-white/20"
+                >
+                  <Gamepad2 className="w-5 h-5" /> Load Demo Data
+                </button>
+              </div>
+            </motion.div>
             </motion.div>
           ) : (
             <motion.div 
