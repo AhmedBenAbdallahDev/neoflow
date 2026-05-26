@@ -1,14 +1,14 @@
 [
   {
     "id": "SWITCH-ZELDA",
-    "title": "The Legend of Zelda: Tears of the Kingdom",
+    "title": "The Legend of Zelda: Breath of the Wild",
     "platform": "Nintendo Switch",
     "genre": "Open-World Action Adventure",
-    "fileSize": "16.3 GB",
-    "cover": "/media/covers/104362_portrait.jpg",
-    "bg": "/media/backgrounds/104362_bg.jpg",
+    "fileSize": "14.4 GB",
+    "cover": "/media/covers/98521_portrait.jpg",
+    "bg": "/media/backgrounds/98521_bg.jpg",
     "type": "Switch",
-    "romUrl": "/roms/totk.nsp"
+    "romUrl": "/roms/botw.nsp"
   },
   {
     "id": "SWITCH-MARIO",
@@ -16,8 +16,8 @@
     "platform": "Nintendo Switch",
     "genre": "3D Platformer",
     "fileSize": "5.6 GB",
-    "cover": "/media/covers/53043_portrait.jpg",
-    "bg": "/media/backgrounds/53043_bg.jpg",
+    "cover": "/media/covers/115789_portrait.jpg",
+    "bg": "/media/backgrounds/115789_bg.jpg",
     "type": "Switch",
     "romUrl": "/roms/smo.nsp"
   },
@@ -27,8 +27,8 @@
     "platform": "Nintendo Switch",
     "genre": "Action-Adventure / Metroidvania",
     "fileSize": "4.1 GB",
-    "cover": "/media/covers/84724_portrait.jpg",
-    "bg": "/media/backgrounds/84724_bg.jpg",
+    "cover": "/media/covers/87675_portrait.jpg",
+    "bg": "/media/backgrounds/87675_bg.jpg",
     "type": "Switch",
     "romUrl": "/roms/dread.nsp"
   },
@@ -38,19 +38,19 @@
     "platform": "Nintendo Switch",
     "genre": "Racing / Party",
     "fileSize": "6.8 GB",
-    "cover": "/media/covers/50000_portrait.jpg",
-    "bg": "/media/backgrounds/50000_bg.jpg",
+    "cover": "/media/covers/42294_portrait.jpg",
+    "bg": "/media/backgrounds/42294_bg.jpg",
     "type": "Switch",
     "romUrl": "/roms/mk8.nsp"
   },
   {
-    "id": "SWITCH-AC",
+    "id": "SWITCH-ACNH",
     "title": "Animal Crossing: New Horizons",
     "platform": "Nintendo Switch",
     "genre": "Social Simulation",
     "fileSize": "6.2 GB",
-    "cover": "/media/covers/61489_portrait.jpg",
-    "bg": "/media/backgrounds/61489_bg.jpg",
+    "cover": "/media/covers/114020_portrait.jpg",
+    "bg": "/media/backgrounds/114020_bg.jpg",
     "type": "Switch",
     "romUrl": "/roms/acnh.nsp"
   },
