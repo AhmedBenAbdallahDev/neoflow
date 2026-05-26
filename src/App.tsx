@@ -271,7 +271,6 @@ export default function App() {
                 load demo data
               </button>
             </motion.div>
-            </motion.div>
           ) : (
             <motion.div 
               key="carousel"

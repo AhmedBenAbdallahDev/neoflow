@@ -127,21 +127,23 @@ export default function CoverFlow({ games, selectedIndex, theme, respectAspect, 
                   theme === 'nes' ? '' : 'rounded-md border-2 border-white/20 shadow-[inset_0_0_20px_rgba(255,255,255,0.2)]'
                 }`}
                 style={theme === 'wii' ? {
-                  WebkitBoxReflect: `below 2px linear-gradient(transparent 60%, rgba(255,255,255,0.4))`,
+                  WebkitBoxReflect: `below 4px linear-gradient(transparent 50%, rgba(0,0,0,0.6))`,
                   filter: `drop-shadow(0 10px 20px rgba(0,0,0,0.5))`
                 } : {}}
                 referrerPolicy="no-referrer"
               />
               
-              {/* Reflection Blur Layer */}
+              {/* Reflection Blur Layer - overlaps the reflection to blur it */}
               {theme === 'wii' && (
                 <div 
-                  className="absolute top-full left-0 right-0 h-1/2 pointer-events-none"
+                  className="absolute left-0 right-0 pointer-events-none"
                   style={{
+                    top: '98%',
+                    height: '35%',
                     backdropFilter: `blur(${reflectionBlur}px)`,
                     WebkitBackdropFilter: `blur(${reflectionBlur}px)`,
-                    maskImage: 'linear-gradient(to bottom, black, transparent)',
-                    WebkitMaskImage: 'linear-gradient(to bottom, black, transparent)',
+                    maskImage: 'linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, transparent 80%)',
+                    WebkitMaskImage: 'linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, transparent 80%)',
                   }}
                 />
               )}
