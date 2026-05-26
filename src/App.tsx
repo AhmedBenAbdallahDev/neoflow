@@ -18,7 +18,7 @@ import {
 } from 'lucide-react'
 import CoverFlow from './components/CoverFlow'
 import NostalgistPlayer from './components/NostalgistPlayer'
-import { searchGame, getGameArt, IMAGE_BASE_URL } from './services/gamesDb'
+import { searchGame, getGameArt, IMAGE_BASE_URL, isApiConfigured } from './services/gamesDb'
 
 interface Game {
   id: string
@@ -59,8 +59,12 @@ export default function App() {
   const [loading, setLoading] = useState(false)
   const fileInputRef = useRef<HTMLInputElement>(null)
 
-  // Function to enrich game data using TheGamesDB
+  // Function to enrich game data using TheGamesDB (only if API key is configured)
   const enrichGameData = async (basicGames: any[]) => {
+    if (!isApiConfigured()) {
+      console.log('TheGamesDB API key not configured. Skipping enrichment.')
+      return
+    }
     setLoading(true)
     const enriched = await Promise.all(basicGames.map(async (game) => {
       try {
@@ -427,6 +431,7 @@ export default function App() {
               onClick={e => e.stopPropagation()}
             >
               <div className="space-y-6">
+                {isApiConfigured() && (
                 <div>
                   <h3 className="text-xs font-bold text-gray-500 uppercase tracking-widest mb-4">Library Tools</h3>
                   <div className="grid grid-cols-1 gap-3">
@@ -440,6 +445,7 @@ export default function App() {
                     </button>
                   </div>
                 </div>
+                )}
 
                 <div>
                   <h3 className="text-xs font-bold text-gray-500 uppercase tracking-widest mb-4">Cover Layout</h3>
