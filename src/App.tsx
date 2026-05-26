@@ -250,7 +250,7 @@ export default function App() {
             <Battery className="w-6 h-6 text-gray-400" />
             <span className="text-gray-400 text-sm font-medium">71%</span>
           </div>
-          <div className="flex items-center">
+          <div className="flex items-center gap-0.5">
             <button className="w-9 h-9 rounded-full hover:bg-white/10 transition-colors flex items-center justify-center">
               <Wifi className="w-5 h-5 text-gray-400" />
             </button>
@@ -261,7 +261,7 @@ export default function App() {
               <Settings className="w-5 h-5 text-gray-400" />
             </button>
           </div>
-          <div className="text-right font-medium ml-6">
+          <div className="text-right font-medium ml-8">
             <div className="text-white text-base">{new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</div>
           </div>
         </div>
