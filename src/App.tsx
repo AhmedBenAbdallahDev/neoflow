@@ -246,13 +246,13 @@ export default function App() {
         </div>
 
         <div className="flex items-center gap-4">
-          <div className="flex items-center gap-2">
+          <div className="w-9 h-9 flex items-center justify-center gap-1">
             <Wifi className="w-5 h-5 text-gray-400" />
             <Battery className="w-5 h-5 text-gray-400" />
           </div>
           <button 
             onClick={() => setShowSettings(true)}
-            className="p-2 rounded-full hover:bg-white/10 transition-colors"
+            className="w-9 h-9 rounded-full hover:bg-white/10 transition-colors flex items-center justify-center"
           >
             <Settings className="w-5 h-5 text-gray-400" />
           </button>
