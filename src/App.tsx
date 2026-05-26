@@ -191,13 +191,13 @@ export default function App() {
       <header className="absolute top-0 w-full p-6 flex justify-between items-start z-50">
         <div className="flex items-center gap-4">
           <div className="flex items-center gap-2">
-            <div className={`w-10 h-10 rounded-full flex items-center justify-center ${
+            <div className={`w-10 h-10 rounded-full flex items-center justify-center overflow-hidden ${
               theme === 'nes' ? "bg-red-600" : theme === 'switch' ? "bg-[#e60012]" : "bg-blue-600"
             }`}>
-              <Monitor className="w-6 h-6 text-white" />
+              <img src="/icon.png" className="w-6 h-6 object-contain brightness-0 invert" alt="NeoFlow" />
             </div>
             <h1 className={`text-2xl font-bold tracking-tight ${theme === 'nes' ? 'font-pixel text-xl' : ''}`}>
-              RetroFlow <span className="text-gray-400">N-Station</span>
+              NeoFlow <span className="text-gray-400">BETA</span>
             </h1>
           </div>
         </div>
