@@ -113,7 +113,7 @@ export default function CoverFlow({ games, selectedIndex, theme, respectAspect, 
             )}
 
             {/* Game Cover Wrapper */}
-            <div className={`relative h-full group ${
+            <div className={`relative h-full group overflow-hidden ${
               respectAspect ? 'w-full' : 'w-full'
             } ${
               theme === 'nes' ? 'border-4 border-gray-400 bg-black p-1' : 'rounded-lg shadow-[0_20px_50px_rgba(0,0,0,0.5)]'
@@ -133,15 +133,16 @@ export default function CoverFlow({ games, selectedIndex, theme, respectAspect, 
                 referrerPolicy="no-referrer"
               />
 
-              {/* Reflection layer - flipped and blurred duplicate (Wii only) */}
+              {/* Reflection: blurred flipped copy of the image */}
               {theme === 'wii' && (
                 <div
-                  className="absolute pointer-events-none overflow-hidden"
+                  className="absolute pointer-events-none"
                   style={{
                     top: '100%',
                     left: 0,
                     right: 0,
-                    height: '50%',
+                    height: '100%',
+                    transformOrigin: 'top center',
                   }}
                 >
                   <img
@@ -150,16 +151,18 @@ export default function CoverFlow({ games, selectedIndex, theme, respectAspect, 
                     aria-hidden="true"
                     className={`w-full h-full ${respectAspect ? 'object-contain' : 'object-cover'}`}
                     style={{
-                      transform: 'scaleY(-1)',
                       filter: `blur(${reflectionBlur}px)`,
-                      maskImage: 'linear-gradient(to bottom, rgba(255,255,255,0.35) 0%, transparent 80%)',
-                      WebkitMaskImage: 'linear-gradient(to bottom, rgba(255,255,255,0.35) 0%, transparent 80%)',
+                      transform: 'scaleY(-1)',
+                      maskImage: 'linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, transparent 60%)',
+                      WebkitMaskImage: 'linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, transparent 60%)',
                     }}
                     referrerPolicy="no-referrer"
                   />
                 </div>
               )}
-
+                referrerPolicy="no-referrer"
+              />
+              
               {/* Active Highlight Selection Box */}
               {isActive && theme === 'wii' && (
                 <motion.div 
