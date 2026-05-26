@@ -38,10 +38,18 @@ type Theme = 'wii' | 'nes' | 'switch'
 export default function App() {
   const [games, setGames] = useState<Game[]>([])
   const [selectedIndex, setSelectedIndex] = useState(0)
-  const [theme, setTheme] = useState<Theme>('wii')
-  const [respectAspect, setRespectAspect] = useState(false)
+  const [theme, setTheme] = useState<Theme>(() => (localStorage.getItem('retroflow-theme') as Theme) || 'wii')
+  const [respectAspect, setRespectAspect] = useState(() => localStorage.getItem('retroflow-respect-aspect') === 'true')
   const [activeGame, setActiveGame] = useState<Game | null>(null)
   const [showNotice, setShowNotice] = useState(!localStorage.getItem('retroflow-notice-hidden'))
+
+  useEffect(() => {
+    localStorage.setItem('retroflow-theme', theme)
+  }, [theme])
+
+  useEffect(() => {
+    localStorage.setItem('retroflow-respect-aspect', String(respectAspect))
+  }, [respectAspect])
   const [showSettings, setShowSettings] = useState(false)
   const [loading, setLoading] = useState(false)
   const fileInputRef = useRef<HTMLInputElement>(null)

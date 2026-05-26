@@ -75,7 +75,9 @@ export default function CoverFlow({ games, selectedIndex, theme, respectAspect, 
         return (
           <motion.div
             key={game.id}
-            className="absolute w-[300px] h-[420px] cursor-pointer will-change-transform"
+            className={`absolute cursor-pointer will-change-transform flex items-center justify-center ${
+              respectAspect ? 'h-[420px]' : 'w-[300px] h-[420px]'
+            }`}
             initial={false}
             animate={layout}
             transition={{ type: "spring", stiffness: 250, damping: 25, mass: 0.8 }}
@@ -95,7 +97,7 @@ export default function CoverFlow({ games, selectedIndex, theme, respectAspect, 
                 style={{ transform: "translateZ(50px)" }}
               >
                 <div className="flex flex-col items-center gap-1 group pointer-events-auto cursor-pointer">
-                  <span className={`font-extrabold ${
+                  <span className={`font-extrabold whitespace-nowrap ${
                     theme === 'nes' 
                       ? "text-red-500 font-pixel text-6xl drop-shadow-[4px_4px_0_rgba(0,0,0,1)]" 
                       : "text-white text-7xl drop-shadow-lg"
@@ -110,13 +112,17 @@ export default function CoverFlow({ games, selectedIndex, theme, respectAspect, 
             )}
 
             {/* Game Cover Wrapper */}
-            <div className={`relative w-full h-full group ${
+            <div className={`relative h-full group ${
+              respectAspect ? 'w-full' : 'w-full'
+            } ${
               theme === 'nes' ? 'border-4 border-gray-400 bg-black p-1' : 'rounded-lg shadow-[0_20px_50px_rgba(0,0,0,0.5)]'
             }`}>
               <img 
                 src={game.cover} 
                 alt={game.title}
-                className={`w-full h-full object-cover ${
+                className={`h-full ${
+                  respectAspect ? 'w-auto object-contain' : 'w-full object-cover'
+                } ${
                   theme === 'nes' ? '' : 'rounded-md border-2 border-white/20 shadow-[inset_0_0_20px_rgba(255,255,255,0.2)]'
                 }`}
                 style={theme === 'wii' ? {
