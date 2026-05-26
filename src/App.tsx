@@ -246,9 +246,9 @@ export default function App() {
         </div>
 
         <div className="flex items-center gap-4">
-          <div className="flex items-center gap-1">
-            <Wifi className="w-4 h-4 text-gray-400" />
-            <Battery className="w-4 h-4 text-gray-400" />
+          <div className="flex items-center gap-2">
+            <Wifi className="w-5 h-5 text-gray-400" />
+            <Battery className="w-5 h-5 text-gray-400" />
           </div>
           <button 
             onClick={() => setShowSettings(true)}
@@ -256,8 +256,8 @@ export default function App() {
           >
             <Settings className="w-5 h-5 text-gray-400" />
           </button>
-          <div className="text-right font-medium text-sm">
-            <div className="text-white">{new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</div>
+          <div className="text-right font-medium">
+            <div className="text-white text-base">{new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</div>
           </div>
         </div>
       </header>
