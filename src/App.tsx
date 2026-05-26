@@ -273,7 +273,6 @@ export default function App() {
                 </button>
               </div>
             </motion.div>
-            </motion.div>
           ) : (
             <motion.div 
               key="carousel"
