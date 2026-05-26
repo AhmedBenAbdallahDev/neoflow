@@ -118,35 +118,42 @@ export default function CoverFlow({ games, selectedIndex, theme, respectAspect, 
             } ${
               theme === 'nes' ? 'border-4 border-gray-400 bg-black p-1' : 'rounded-lg shadow-[0_20px_50px_rgba(0,0,0,0.5)]'
             }`}>
+              {/* Blurred reflection layer (behind the image) */}
+              {theme === 'wii' && (
+                <div
+                  className="absolute inset-0 pointer-events-none"
+                  style={{
+                    transform: 'scaleY(-1) translateY(100%)',
+                    filter: `blur(${reflectionBlur}px)`,
+                    opacity: 0.35,
+                    maskImage: 'linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 70%)',
+                    WebkitMaskImage: 'linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 70%)',
+                  }}
+                >
+                  <img
+                    src={game.cover}
+                    alt=""
+                    aria-hidden="true"
+                    className={`h-full ${respectAspect ? 'w-auto object-contain' : 'w-full object-cover'}`}
+                    referrerPolicy="no-referrer"
+                  />
+                </div>
+              )}
+
+              {/* Main cover image */}
               <img 
                 src={game.cover} 
                 alt={game.title}
-                className={`h-full ${
+                className={`relative h-full ${
                   respectAspect ? 'w-auto object-contain' : 'w-full object-cover'
                 } ${
                   theme === 'nes' ? '' : 'rounded-md border-2 border-white/20 shadow-[inset_0_0_20px_rgba(255,255,255,0.2)]'
                 }`}
                 style={theme === 'wii' ? {
-                  WebkitBoxReflect: `below 4px linear-gradient(transparent 50%, rgba(0,0,0,0.6))`,
                   filter: `drop-shadow(0 10px 20px rgba(0,0,0,0.5))`
                 } : {}}
                 referrerPolicy="no-referrer"
               />
-              
-              {/* Reflection Blur Layer - overlaps the reflection to blur it */}
-              {theme === 'wii' && (
-                <div 
-                  className="absolute left-0 right-0 pointer-events-none"
-                  style={{
-                    top: '98%',
-                    height: '35%',
-                    backdropFilter: `blur(${reflectionBlur}px)`,
-                    WebkitBackdropFilter: `blur(${reflectionBlur}px)`,
-                    maskImage: 'linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, transparent 80%)',
-                    WebkitMaskImage: 'linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, transparent 80%)',
-                  }}
-                />
-              )}
               
               {/* Active Highlight Selection Box */}
               {isActive && theme === 'wii' && (
