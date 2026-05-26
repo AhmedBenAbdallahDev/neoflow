@@ -138,8 +138,8 @@ export default function CoverFlow({ games, selectedIndex, theme, respectAspect, 
                     style={{
                       filter: `blur(${reflectionBlur}px)`,
                       transform: 'scaleY(-1)',
-                      maskImage: 'linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, transparent 80%)',
-                      WebkitMaskImage: 'linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, transparent 80%)',
+                      maskImage: 'linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 80%)',
+                      WebkitMaskImage: 'linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 80%)',
                     }}
                     referrerPolicy="no-referrer"
                   />
