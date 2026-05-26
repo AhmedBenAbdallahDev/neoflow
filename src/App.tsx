@@ -40,7 +40,10 @@ export default function App() {
   const [selectedIndex, setSelectedIndex] = useState(0)
   const [theme, setTheme] = useState<Theme>(() => (localStorage.getItem('retroflow-theme') as Theme) || 'wii')
   const [respectAspect, setRespectAspect] = useState(() => localStorage.getItem('retroflow-respect-aspect') === 'true')
-  const [reflectionBlur, setReflectionBlur] = useState(() => Number(localStorage.getItem('retroflow-reflection-blur')) || 4)
+  const [reflectionBlur, setReflectionBlur] = useState(() => {
+    const stored = localStorage.getItem('retroflow-reflection-blur')
+    return stored !== null ? Number(stored) : 4
+  })
   const [activeGame, setActiveGame] = useState<Game | null>(null)
   const [showNotice, setShowNotice] = useState(!localStorage.getItem('retroflow-notice-hidden'))
 
