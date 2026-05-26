@@ -245,20 +245,22 @@ export default function App() {
           </div>
         </div>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-6">
           <div className="flex items-center gap-1">
             <Battery className="w-6 h-6 text-gray-400" />
             <span className="text-gray-400 text-sm font-medium">100%</span>
           </div>
-          <button className="w-9 h-9 rounded-full hover:bg-white/10 transition-colors flex items-center justify-center">
-            <Wifi className="w-5 h-5 text-gray-400" />
-          </button>
-          <button 
-            onClick={() => setShowSettings(true)}
-            className="w-9 h-9 rounded-full hover:bg-white/10 transition-colors flex items-center justify-center"
-          >
-            <Settings className="w-5 h-5 text-gray-400" />
-          </button>
+          <div className="flex items-center gap-1">
+            <button className="w-9 h-9 rounded-full hover:bg-white/10 transition-colors flex items-center justify-center">
+              <Wifi className="w-5 h-5 text-gray-400" />
+            </button>
+            <button 
+              onClick={() => setShowSettings(true)}
+              className="w-9 h-9 rounded-full hover:bg-white/10 transition-colors flex items-center justify-center"
+            >
+              <Settings className="w-5 h-5 text-gray-400" />
+            </button>
+          </div>
           <div className="text-right font-medium">
             <div className="text-white text-base">{new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</div>
           </div>
