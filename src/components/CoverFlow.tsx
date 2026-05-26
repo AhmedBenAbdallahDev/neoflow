@@ -15,11 +15,12 @@ interface CoverFlowProps {
   games: Game[]
   selectedIndex: number
   theme: 'wii' | 'nes' | 'switch'
+  respectAspect?: boolean
   onSelect: (index: number) => void
   onLaunch: (game: Game) => void
 }
 
-export default function CoverFlow({ games, selectedIndex, theme, onSelect, onLaunch }: CoverFlowProps) {
+export default function CoverFlow({ games, selectedIndex, theme, respectAspect, onSelect, onLaunch }: CoverFlowProps) {
   const getLayout = (index: number) => {
     const diff = index - selectedIndex
     const absDiff = Math.abs(diff)

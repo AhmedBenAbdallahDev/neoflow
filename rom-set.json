@@ -5,8 +5,8 @@
     "platform": "Nintendo Switch",
     "genre": "Open-World Action Adventure",
     "fileSize": "14.4 GB",
-    "cover": "https://assets.nintendo.com/image/upload/ar_16:9,c_lpad,w_1200,f_auto,q_auto/v1/ncom/en_US/games/switch/t/the-legend-of-zelda-breath-of-the-wild-switch/hero",
-    "bg": "https://wallpaperaccess.com/full/41565.jpg",
+    "cover": "/media/covers/98521_portrait.jpg",
+    "bg": "/media/backgrounds/98521_bg.jpg",
     "type": "Switch",
     "romUrl": "/roms/botw.nsp"
   },
@@ -16,8 +16,8 @@
     "platform": "Nintendo Switch",
     "genre": "3D Platformer",
     "fileSize": "5.6 GB",
-    "cover": "https://assets.nintendo.com/image/upload/ar_16:9,c_lpad,w_1200,f_auto,q_auto/v1/ncom/en_US/games/switch/s/super-mario-odyssey-switch/hero",
-    "bg": "https://wallpaperaccess.com/full/22374.jpg",
+    "cover": "/media/covers/42320_portrait.jpg",
+    "bg": "/media/backgrounds/42320_bg.jpg",
     "type": "Switch",
     "romUrl": "/roms/smo.nsp"
   },
@@ -27,8 +27,8 @@
     "platform": "Nintendo Switch",
     "genre": "Action-Adventure / Metroidvania",
     "fileSize": "4.1 GB",
-    "cover": "https://assets.nintendo.com/image/upload/ar_16:9,c_lpad,w_1200,f_auto,q_auto/v1/ncom/en_US/games/switch/m/metroid-dread-switch/hero",
-    "bg": "https://wallpaperaccess.com/full/1598448.jpg",
+    "cover": "/media/covers/87675_portrait.jpg",
+    "bg": "/media/backgrounds/87675_bg.jpg",
     "type": "Switch",
     "romUrl": "/roms/dread.nsp"
   },
@@ -38,8 +38,8 @@
     "platform": "Nintendo Switch",
     "genre": "Racing / Party",
     "fileSize": "6.8 GB",
-    "cover": "https://assets.nintendo.com/image/upload/ar_16:9,c_lpad,w_1200,f_auto,q_auto/v1/ncom/en_US/games/switch/m/mario-kart-8-deluxe-switch/hero",
-    "bg": "https://wallpaperaccess.com/full/41561.jpg",
+    "cover": "/media/covers/42294_portrait.jpg",
+    "bg": "/media/backgrounds/42294_bg.jpg",
     "type": "Switch",
     "romUrl": "/roms/mk8.nsp"
   },
@@ -60,8 +60,8 @@
     "platform": "Nintendo Switch",
     "genre": "Fighting / Party",
     "fileSize": "16.0 GB",
-    "cover": "https://assets.nintendo.com/image/upload/ar_16:9,c_lpad,w_1200,f_auto,q_auto/v1/ncom/en_US/games/switch/s/super-smash-bros-ultimate-switch/hero",
-    "bg": "https://wallpaperaccess.com/full/22380.jpg",
+    "cover": "/media/covers/111829_portrait.jpg",
+    "bg": "/media/backgrounds/111829_bg.jpg",
     "type": "Switch",
     "romUrl": "/roms/smash.nsp"
   }

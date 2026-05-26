@@ -18,7 +18,7 @@ import {
 } from 'lucide-react'
 import CoverFlow from './components/CoverFlow'
 import NostalgistPlayer from './components/NostalgistPlayer'
-import { searchGame, getGameArt } from './services/gamesDb'
+import { searchGame, getGameArt, IMAGE_BASE_URL } from './services/gamesDb'
 
 interface Game {
   id: string
@@ -39,6 +39,7 @@ export default function App() {
   const [games, setGames] = useState<Game[]>([])
   const [selectedIndex, setSelectedIndex] = useState(0)
   const [theme, setTheme] = useState<Theme>('wii')
+  const [respectAspect, setRespectAspect] = useState(false)
   const [activeGame, setActiveGame] = useState<Game | null>(null)
   const [showNotice, setShowNotice] = useState(!localStorage.getItem('retroflow-notice-hidden'))
   const [showSettings, setShowSettings] = useState(false)
@@ -63,8 +64,8 @@ export default function App() {
             ...game,
             platform: matched.platform || game.platform,
             genre: matched.genres ? matched.genres.join(', ') : game.genre,
-            cover: boxart ? `https://legacy.thegamesdb.net/banners/${boxart.filename}` : game.cover,
-            bg: fanart ? `https://legacy.thegamesdb.net/banners/${fanart.filename}` : game.bg,
+            cover: boxart ? `${IMAGE_BASE_URL}${boxart.filename}` : game.cover,
+            bg: fanart ? `${IMAGE_BASE_URL}${fanart.filename}` : game.bg,
             dbId: matched.id
           }
         }
@@ -240,6 +241,7 @@ export default function App() {
                 games={games}
                 selectedIndex={selectedIndex}
                 theme={theme}
+                respectAspect={respectAspect}
                 onSelect={setSelectedIndex}
                 onLaunch={(game) => setActiveGame(game)}
               />
@@ -423,6 +425,22 @@ export default function App() {
                       <Search className="w-4 h-4 text-green-500" />
                     </button>
                   </div>
+                </div>
+
+                <div>
+                  <h3 className="text-xs font-bold text-gray-500 uppercase tracking-widest mb-4">Cover Layout</h3>
+                  <button 
+                    onClick={() => setRespectAspect(!respectAspect)}
+                    className={`p-4 w-full rounded-xl border transition-all flex items-center justify-between ${respectAspect ? 'bg-blue-600/20 border-blue-500 text-white' : 'bg-white/5 border-white/10 text-gray-400 hover:bg-white/10'}`}
+                  >
+                    <div className="flex flex-col items-start gap-1">
+                      <span className="font-bold">Respect Image Aspect</span>
+                      <span className="text-[10px] opacity-60">Prevents cropping/stretching to fixed size</span>
+                    </div>
+                    <div className={`w-10 h-5 rounded-full relative transition-colors ${respectAspect ? 'bg-blue-500' : 'bg-gray-600'}`}>
+                      <div className={`absolute top-1 w-3 h-3 rounded-full bg-white transition-all ${respectAspect ? 'left-6' : 'left-1'}`} />
+                    </div>
+                  </button>
                 </div>
 
                 <div>
