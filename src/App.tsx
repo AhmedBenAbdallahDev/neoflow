@@ -219,7 +219,7 @@ export default function App() {
               <img src="/icon.png" className={`w-full h-full object-contain ${theme !== 'switch' ? '' : 'brightness-0 invert p-2'}`} alt="NeoFlow" />
             </div>
             <h1 className={`text-2xl font-bold tracking-tight ${theme === 'nes' ? 'font-pixel text-xl' : ''}`}>
-              NeoFlow <span className="text-gray-400 text-xs font-medium lowercase">alpha-1</span>
+              NeoFlow <span className="text-gray-400 text-sm font-semibold lowercase tracking-wide">alpha-1</span>
             </h1>
           </div>
         </div>
