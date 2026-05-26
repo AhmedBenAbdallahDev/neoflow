@@ -44,15 +44,15 @@
     "romUrl": "/roms/mk8.nsp"
   },
   {
-    "id": "SWITCH-PIKMIN",
-    "title": "Pikmin 4",
+    "id": "SWITCH-ACNH",
+    "title": "Animal Crossing: New Horizons",
     "platform": "Nintendo Switch",
-    "genre": "Strategy / Adventure",
-    "fileSize": "10.4 GB",
-    "cover": "/media/covers/117194_portrait.jpg",
-    "bg": "/media/backgrounds/117194_bg.jpg",
+    "genre": "Social Simulation",
+    "fileSize": "6.2 GB",
+    "cover": "/media/covers/61029_portrait.jpg",
+    "bg": "/media/backgrounds/61029_bg.jpg",
     "type": "Switch",
-    "romUrl": "/roms/pikmin4.nsp"
+    "romUrl": "/roms/acnh.nsp"
   },
   {
     "id": "SWITCH-SMASH",
