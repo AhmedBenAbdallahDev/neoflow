@@ -258,20 +258,19 @@ export default function App() {
                 <h2 className="text-2xl font-bold mb-2">No Games Found</h2>
                 <p className="text-gray-400">Your library is empty. Import a JSON file containing your ROM set to get started.</p>
               </div>
-              <div className="flex gap-4">
-                <button 
-                  onClick={() => fileInputRef.current?.click()}
-                  className="flex items-center gap-2 px-8 py-3 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-lg transition-all hover:scale-105"
-                >
-                  <Upload className="w-5 h-5" /> Import Game JSON
-                </button>
-                <button 
-                  onClick={loadDummyData}
-                  className="flex items-center gap-2 px-8 py-3 bg-white/10 hover:bg-white/20 text-white font-bold rounded-lg transition-all border border-white/20"
-                >
-                  <Gamepad2 className="w-5 h-5" /> Load Demo Data
-                </button>
-              </div>
+              <button 
+                onClick={() => fileInputRef.current?.click()}
+                className="flex items-center gap-2 px-8 py-3 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-lg transition-all hover:scale-105"
+              >
+                <Upload className="w-5 h-5" /> Import Game JSON
+              </button>
+              <button 
+                onClick={loadDummyData}
+                className="text-[10px] text-gray-500 hover:text-gray-300 transition-colors underline underline-offset-2 mt-2"
+              >
+                load demo data
+              </button>
+            </motion.div>
             </motion.div>
           ) : (
             <motion.div 
