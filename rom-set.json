@@ -16,8 +16,8 @@
     "platform": "Nintendo Switch",
     "genre": "3D Platformer",
     "fileSize": "5.6 GB",
-    "cover": "/media/covers/42320_portrait.jpg",
-    "bg": "/media/backgrounds/42320_bg.jpg",
+    "cover": "/media/covers/53043_portrait.jpg",
+    "bg": "/media/backgrounds/53043_bg.jpg",
     "type": "Switch",
     "romUrl": "/roms/smo.nsp"
   },
@@ -38,8 +38,8 @@
     "platform": "Nintendo Switch",
     "genre": "Racing / Party",
     "fileSize": "6.8 GB",
-    "cover": "/media/covers/42294_portrait.jpg",
-    "bg": "/media/backgrounds/42294_bg.jpg",
+    "cover": "/media/covers/50000_portrait.jpg",
+    "bg": "/media/backgrounds/50000_bg.jpg",
     "type": "Switch",
     "romUrl": "/roms/mk8.nsp"
   },
