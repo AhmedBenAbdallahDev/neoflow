@@ -234,10 +234,10 @@ export default function App() {
       <header className="absolute top-0 w-full p-6 flex justify-between items-start z-50">
         <div className="flex items-center gap-4">
           <div className="flex items-center gap-2">
-            <div className={`w-10 h-10 rounded-full flex items-center justify-center ${
-              theme === 'nes' ? "bg-red-600" : theme === 'switch' ? "bg-[#e60012]" : "bg-blue-600"
+            <div className={`w-10 h-10 rounded-full flex items-center justify-center overflow-hidden ${
+              theme === 'nes' ? "bg-red-600" : theme === 'switch' ? "bg-[#e60012]" : "bg-transparent"
             }`}>
-              <Gamepad2 className="w-6 h-6 text-white" />
+              <img src="/icon.png" className={`w-full h-full object-contain ${theme !== 'switch' && theme !== 'wii' ? '' : 'brightness-0 invert p-2'}`} alt="NeoFlow" />
             </div>
             <h1 className={`text-2xl font-bold tracking-tight ${theme === 'nes' ? 'font-pixel text-xl' : ''}`}>
               NEOFLOW <span className="text-gray-400 text-sm font-semibold lowercase tracking-wide">alpha</span>
@@ -246,11 +246,11 @@ export default function App() {
         </div>
 
         <div className="flex items-center gap-2">
-          <div className="flex items-center gap-1 mr--5">
+          <div className="flex items-center gap-1">
             <Battery className="w-6 h-6 text-gray-400" />
             <span className="text-gray-400 text-sm font-medium">71%</span>
           </div>
-          <div className="flex items-center gap-1">
+          <div className="flex items-center">
             <button className="w-9 h-9 rounded-full hover:bg-white/10 transition-colors flex items-center justify-center">
               <Wifi className="w-5 h-5 text-gray-400" />
             </button>
@@ -261,7 +261,7 @@ export default function App() {
               <Settings className="w-5 h-5 text-gray-400" />
             </button>
           </div>
-          <div className="text-right font-medium ml-4">
+          <div className="text-right font-medium ml-6">
             <div className="text-white text-base">{new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</div>
           </div>
         </div>
