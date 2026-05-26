@@ -237,7 +237,7 @@ export default function App() {
             <div className={`w-10 h-10 rounded-full flex items-center justify-center overflow-hidden ${
               theme === 'nes' ? "bg-red-600" : theme === 'switch' ? "bg-[#e60012]" : "bg-transparent"
             }`}>
-              <img src="/icon.png" className={`w-full h-full object-contain ${theme !== 'switch' && theme !== 'wii' ? '' : 'brightness-0 invert p-2'}`} alt="NeoFlow" />
+              <img src="/game.png" className="w-full h-full object-contain" alt="NeoFlow" />
             </div>
             <h1 className={`text-2xl font-bold tracking-tight ${theme === 'nes' ? 'font-pixel text-xl' : ''}`}>
               NEOFLOW <span className="text-gray-400 text-sm font-semibold lowercase tracking-wide">alpha</span>
