@@ -239,7 +239,7 @@ export default function App() {
             }`}>
               <img src="/game.png" className="w-full h-full object-contain" alt="NeoFlow" />
             </div>
-            <h1 className={`text-2xl font-bold tracking-tight ${theme === 'nes' ? 'font-pixel text-xl' : ''}`}>
+            <h1 className={`text-2xl font-bold tracking-tight font-['Elms+Sans',sans-serif] ${theme === 'nes' ? 'font-pixel text-xl' : ''}`}>
               NEOFLOW <span className="text-gray-400 text-sm font-semibold lowercase tracking-wide">alpha</span>
             </h1>
           </div>

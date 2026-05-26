@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Elms+Sans:wght@300;400;500;600;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,6 +7,6 @@
 
 @layer base {
   body {
-    @apply bg-black text-white overflow-hidden select-none;
+    @apply bg-black text-white overflow-hidden select-none font-['Elms+Sans',sans-serif];
   }
 }
