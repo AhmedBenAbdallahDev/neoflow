@@ -40,6 +40,7 @@ export default function App() {
   const [selectedIndex, setSelectedIndex] = useState(0)
   const [theme, setTheme] = useState<Theme>(() => (localStorage.getItem('retroflow-theme') as Theme) || 'wii')
   const [respectAspect, setRespectAspect] = useState(() => localStorage.getItem('retroflow-respect-aspect') === 'true')
+  const [reflectionBlur, setReflectionBlur] = useState(() => Number(localStorage.getItem('retroflow-reflection-blur')) || 4)
   const [activeGame, setActiveGame] = useState<Game | null>(null)
   const [showNotice, setShowNotice] = useState(!localStorage.getItem('retroflow-notice-hidden'))
 
@@ -50,6 +51,10 @@ export default function App() {
   useEffect(() => {
     localStorage.setItem('retroflow-respect-aspect', String(respectAspect))
   }, [respectAspect])
+
+  useEffect(() => {
+    localStorage.setItem('retroflow-reflection-blur', String(reflectionBlur))
+  }, [reflectionBlur])
   const [showSettings, setShowSettings] = useState(false)
   const [loading, setLoading] = useState(false)
   const fileInputRef = useRef<HTMLInputElement>(null)
@@ -250,6 +255,7 @@ export default function App() {
                 selectedIndex={selectedIndex}
                 theme={theme}
                 respectAspect={respectAspect}
+                reflectionBlur={reflectionBlur}
                 onSelect={setSelectedIndex}
                 onLaunch={(game) => setActiveGame(game)}
               />
@@ -437,18 +443,35 @@ export default function App() {
 
                 <div>
                   <h3 className="text-xs font-bold text-gray-500 uppercase tracking-widest mb-4">Cover Layout</h3>
-                  <button 
-                    onClick={() => setRespectAspect(!respectAspect)}
-                    className={`p-4 w-full rounded-xl border transition-all flex items-center justify-between ${respectAspect ? 'bg-blue-600/20 border-blue-500 text-white' : 'bg-white/5 border-white/10 text-gray-400 hover:bg-white/10'}`}
-                  >
-                    <div className="flex flex-col items-start gap-1">
-                      <span className="font-bold">Respect Image Aspect</span>
-                      <span className="text-[10px] opacity-60">Prevents cropping/stretching to fixed size</span>
+                  <div className="space-y-3">
+                    <button 
+                      onClick={() => setRespectAspect(!respectAspect)}
+                      className={`p-4 w-full rounded-xl border transition-all flex items-center justify-between ${respectAspect ? 'bg-blue-600/20 border-blue-500 text-white' : 'bg-white/5 border-white/10 text-gray-400 hover:bg-white/10'}`}
+                    >
+                      <div className="flex flex-col items-start gap-1">
+                        <span className="font-bold">Respect Image Aspect</span>
+                        <span className="text-[10px] opacity-60">Prevents cropping/stretching</span>
+                      </div>
+                      <div className={`w-10 h-5 rounded-full relative transition-colors ${respectAspect ? 'bg-blue-500' : 'bg-gray-600'}`}>
+                        <div className={`absolute top-1 w-3 h-3 rounded-full bg-white transition-all ${respectAspect ? 'left-6' : 'left-1'}`} />
+                      </div>
+                    </button>
+
+                    <div className="bg-white/5 border border-white/10 rounded-xl p-4 space-y-3">
+                      <div className="flex justify-between items-center">
+                        <span className="text-sm font-bold text-gray-400">Reflection Blur</span>
+                        <span className="text-xs font-mono text-blue-500">{reflectionBlur}px</span>
+                      </div>
+                      <input 
+                        type="range" 
+                        min="0" 
+                        max="20" 
+                        value={reflectionBlur}
+                        onChange={(e) => setReflectionBlur(Number(e.target.value))}
+                        className="w-full h-1.5 bg-white/10 rounded-lg appearance-none cursor-pointer accent-blue-500"
+                      />
                     </div>
-                    <div className={`w-10 h-5 rounded-full relative transition-colors ${respectAspect ? 'bg-blue-500' : 'bg-gray-600'}`}>
-                      <div className={`absolute top-1 w-3 h-3 rounded-full bg-white transition-all ${respectAspect ? 'left-6' : 'left-1'}`} />
-                    </div>
-                  </button>
+                  </div>
                 </div>
 
                 <div>

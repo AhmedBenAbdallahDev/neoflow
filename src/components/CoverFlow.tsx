@@ -16,11 +16,12 @@ interface CoverFlowProps {
   selectedIndex: number
   theme: 'wii' | 'nes' | 'switch'
   respectAspect?: boolean
+  reflectionBlur?: number
   onSelect: (index: number) => void
   onLaunch: (game: Game) => void
 }
 
-export default function CoverFlow({ games, selectedIndex, theme, respectAspect, onSelect, onLaunch }: CoverFlowProps) {
+export default function CoverFlow({ games, selectedIndex, theme, respectAspect, reflectionBlur = 4, onSelect, onLaunch }: CoverFlowProps) {
   const getLayout = (index: number) => {
     const diff = index - selectedIndex
     const absDiff = Math.abs(diff)
@@ -126,10 +127,24 @@ export default function CoverFlow({ games, selectedIndex, theme, respectAspect, 
                   theme === 'nes' ? '' : 'rounded-md border-2 border-white/20 shadow-[inset_0_0_20px_rgba(255,255,255,0.2)]'
                 }`}
                 style={theme === 'wii' ? {
-                  WebkitBoxReflect: "below 2px linear-gradient(transparent 60%, rgba(255,255,255,0.4))"
+                  WebkitBoxReflect: `below 2px linear-gradient(transparent 60%, rgba(255,255,255,0.4))`,
+                  filter: `drop-shadow(0 10px 20px rgba(0,0,0,0.5))`
                 } : {}}
                 referrerPolicy="no-referrer"
               />
+              
+              {/* Reflection Blur Layer */}
+              {theme === 'wii' && (
+                <div 
+                  className="absolute top-full left-0 right-0 h-1/2 pointer-events-none"
+                  style={{
+                    backdropFilter: `blur(${reflectionBlur}px)`,
+                    WebkitBackdropFilter: `blur(${reflectionBlur}px)`,
+                    maskImage: 'linear-gradient(to bottom, black, transparent)',
+                    WebkitMaskImage: 'linear-gradient(to bottom, black, transparent)',
+                  }}
+                />
+              )}
               
               {/* Active Highlight Selection Box */}
               {isActive && theme === 'wii' && (
