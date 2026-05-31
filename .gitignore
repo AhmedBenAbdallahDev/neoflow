@@ -3,3 +3,6 @@ dist
 .env
 archive
 scripts/fetch-media.js
+bun.lock
+.edge-profile*/
+.tmp-*/

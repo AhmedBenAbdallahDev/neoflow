@@ -35,11 +35,80 @@ interface Game {
 
 type Theme = 'wii' | 'nes' | 'switch'
 
+const loadedBackgroundUrls = new Set<string>()
+
+function getBackgroundOpacity(theme: Theme) {
+  if (theme === 'wii') return 0.4
+  if (theme === 'switch') return 0.15
+  return 0.2
+}
+
+function FadingBackground({ src, theme }: { src: string, theme: Theme }) {
+  const imageRef = useRef<HTMLImageElement>(null)
+  const [isLoaded, setIsLoaded] = useState(() => loadedBackgroundUrls.has(src))
+  const [hasError, setHasError] = useState(false)
+
+  useEffect(() => {
+    setIsLoaded(loadedBackgroundUrls.has(src))
+    setHasError(false)
+  }, [src])
+
+  const markBackgroundReady = useCallback((image: HTMLImageElement | null) => {
+    if (!image || image.naturalWidth === 0) {
+      setHasError(true)
+      return
+    }
+
+    const finish = () => {
+      if (imageRef.current !== image) return
+      loadedBackgroundUrls.add(src)
+      setIsLoaded(true)
+    }
+
+    if (image.decode) {
+      image.decode().then(finish).catch(finish)
+      return
+    }
+
+    finish()
+  }, [src])
+
+  useEffect(() => {
+    const image = imageRef.current
+    if (image?.complete && image.naturalWidth > 0) {
+      markBackgroundReady(image)
+    }
+  }, [markBackgroundReady])
+
+  return (
+    <motion.img
+      ref={imageRef}
+      src={src}
+      alt="background"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: isLoaded && !hasError ? getBackgroundOpacity(theme) : 0 }}
+      onLoad={(event) => markBackgroundReady(event.currentTarget)}
+      onError={() => {
+        setHasError(true)
+        setIsLoaded(false)
+      }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.9, ease: "easeOut" }}
+      decoding="async"
+      className={`absolute inset-0 w-full h-full object-cover scale-110 ${
+        theme === 'nes' ? "blur-md grayscale contrast-150" : 
+        theme === 'switch' ? "blur-[80px]" : 
+        "blur-xl"
+      }`}
+    />
+  )
+}
+
 export default function App() {
   const [games, setGames] = useState<Game[]>([])
   const [selectedIndex, setSelectedIndex] = useState(0)
   const [theme, setTheme] = useState<Theme>(() => (localStorage.getItem('retroflow-theme') as Theme) || 'wii')
-  const [respectAspect, setRespectAspect] = useState(() => localStorage.getItem('retroflow-respect-aspect') === 'true')
+  const [respectAspect, setRespectAspect] = useState(() => localStorage.getItem('retroflow-respect-aspect') !== 'false')
   const [reflectionBlur, setReflectionBlur] = useState(() => {
     const stored = localStorage.getItem('retroflow-reflection-blur')
     return stored !== null ? Number(stored) : 4
@@ -189,6 +258,7 @@ export default function App() {
   }, [handleKeyDown])
 
   const currentInfo = games[selectedIndex]
+  const backgroundSrc = currentInfo?.bg || 'https://images.alphacoders.com/264/264426.jpg'
 
   return (
     <div className={`relative w-full h-screen overflow-hidden selection:bg-transparent transition-colors duration-500 ${
@@ -198,22 +268,7 @@ export default function App() {
     }`}>
       {/* Background Image */}
       <AnimatePresence mode="popLayout">
-        <motion.img
-          key={currentInfo?.id || 'default-bg'}
-          src={currentInfo?.bg || 'https://images.alphacoders.com/264/264426.jpg'}
-          alt="background"
-          initial={{ opacity: 0 }}
-          animate={{ 
-            opacity: theme === 'wii' ? 0.4 : theme === 'switch' ? 0.15 : 0.2 
-          }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.8 }}
-          className={`absolute inset-0 w-full h-full object-cover scale-110 ${
-            theme === 'nes' ? "blur-md grayscale contrast-150" : 
-            theme === 'switch' ? "blur-[80px]" : 
-            "blur-xl"
-          }`}
-        />
+        <FadingBackground key={backgroundSrc} src={backgroundSrc} theme={theme} />
       </AnimatePresence>
 
       {/* Overlays */}
@@ -519,7 +574,7 @@ export default function App() {
                     >
                       <div className="flex flex-col items-start gap-1">
                         <span className="font-bold">Respect Image Aspect</span>
-                        <span className="text-[10px] opacity-60">Prevents cropping/stretching</span>
+                        <span className="text-[10px] opacity-60">Uses the Switch cover ratio</span>
                       </div>
                       <div className={`w-10 h-5 rounded-full relative transition-colors ${respectAspect ? 'bg-blue-500' : 'bg-gray-600'}`}>
                         <div className={`absolute top-1 w-3 h-3 rounded-full bg-white transition-all ${respectAspect ? 'left-6' : 'left-1'}`} />
