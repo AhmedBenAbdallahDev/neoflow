@@ -97,5 +97,27 @@
     "bg": "/media/backgrounds/93208_bg.jpg",
     "type": "Switch",
     "romUrl": "/roms/mario_party_superstars.nsp"
+  },
+  {
+    "id": "SWITCH-56105",
+    "title": "Hollow Knight",
+    "platform": "Nintendo Switch",
+    "genre": "Action-Adventure",
+    "fileSize": "N/A",
+    "cover": "/media/covers/56105_portrait.jpg",
+    "bg": "/media/backgrounds/56105_bg.jpg",
+    "type": "Switch",
+    "romUrl": "/roms/hollow_knight.nsp"
+  },
+  {
+    "id": "SWITCH-51277",
+    "title": "Stardew Valley",
+    "platform": "Nintendo Switch",
+    "genre": "Action-Adventure",
+    "fileSize": "N/A",
+    "cover": "/media/covers/51277_portrait.jpg",
+    "bg": "/media/backgrounds/51277_bg.jpg",
+    "type": "Switch",
+    "romUrl": "/roms/stardew_valley.nsp"
   }
 ]
