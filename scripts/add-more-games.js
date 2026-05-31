@@ -10,9 +10,9 @@ const BASE_URL = 'https://api.thegamesdb.net/v1';
 const ROM_SET_PATH = path.join(process.cwd(), 'public', 'rom-set.json');
 
 const newGames = [
-    { name: "The Legend of Zelda: Tears of the Kingdom", id: "109536", type: "Switch" },
-    { name: "Hollow Knight", id: "46830", type: "Switch" },
-    { name: "Stardew Valley", id: "34914", type: "Switch" }
+    { name: "The Legend of Zelda: Tears of the Kingdom", type: "Switch" },
+    { name: "Hollow Knight", type: "Switch" },
+    { name: "Stardew Valley", type: "Switch" }
 ];
 
 async function downloadImage(url, folder, filename) {
@@ -45,7 +45,7 @@ async function downloadImage(url, folder, filename) {
 }
 
 async function run() {
-    console.log("🚀 Adding 3 more high-res games to NeoFlow...");
+    console.log("🚀 Adding 3 more Switch games with VERIFIED logic...");
     
     let currentData = [];
     if (fs.existsSync(ROM_SET_PATH)) {
@@ -58,53 +58,65 @@ async function run() {
             continue;
         }
 
-        console.log(`🔍 Fetching metadata for: ${game.name}...`);
+        console.log(`🔍 Searching for Switch version of: ${game.name}...`);
         
         try {
-            // 1. Get images
-            const imgResponse = await axios.get(`${BASE_URL}/Games/Images`, {
-                params: { apikey: API_KEY, games_id: game.id },
+            // STEP 1: Search by name
+            const searchRes = await axios.get(`${BASE_URL}/Games/ByGameName`, {
+                params: { apikey: API_KEY, name: game.name },
                 headers: { 'Accept': 'application/json', 'User-Agent': 'NeoFlow/1.0' }
             });
 
-            const images = imgResponse.data.data.images[game.id];
+            const gamesList = searchRes.data.data.games;
+            if (!gamesList || gamesList.length === 0) {
+                console.log(`❌ No matches found for ${game.name}`);
+                continue;
+            }
+
+            // STEP 2: Find the Switch platform (4971) specifically
+            const switchEntry = gamesList.find(g => g.platform === 4971);
+            if (!switchEntry) {
+                console.log(`❌ Switch version not found for ${game.name}. Skipping.`);
+                continue;
+            }
+
+            const realId = switchEntry.id;
+            console.log(`✅ Found Switch ID: ${realId}`);
+
+            // STEP 3: Get assets
+            const imgRes = await axios.get(`${BASE_URL}/Games/Images`, {
+                params: { apikey: API_KEY, games_id: realId },
+                headers: { 'Accept': 'application/json', 'User-Agent': 'NeoFlow/1.0' }
+            });
+
+            const images = imgRes.data.data.images[realId];
             if (!images) {
-                console.log(`❌ No images found for ${game.name}`);
+                console.log(`❌ No images found for ID: ${realId}`);
                 continue;
             }
 
             const imageBaseUrl = 'https://cdn.thegamesdb.net/images/original/';
             
-            // Find best portrait (boxart front)
             const portrait = images.find(img => img.type === 'boxart' && img.side === 'front') || images[0];
-            // Find best background (fanart or screenshot)
             const background = images.find(img => img.type === 'fanart') || images.find(img => img.type === 'screenshot') || images[0];
 
-            const coverLocal = await downloadImage(`${imageBaseUrl}${portrait.filename}`, 'covers', `${game.id}_portrait.jpg`);
-            const bgLocal = await downloadImage(`${imageBaseUrl}${background.filename}`, 'backgrounds', `${game.id}_bg.jpg`);
+            const coverLocal = await downloadImage(`${imageBaseUrl}${portrait.filename}`, 'covers', `${realId}_portrait.jpg`);
+            const bgLocal = await downloadImage(`${imageBaseUrl}${background.filename}`, 'backgrounds', `${realId}_bg.jpg`);
 
-            // 2. Get Metadata (platform, genre)
-            const metaResponse = await axios.get(`${BASE_URL}/Games/ByGameID`, {
-                params: { apikey: API_KEY, id: game.id, fields: 'genres,platform' },
-                headers: { 'Accept': 'application/json', 'User-Agent': 'NeoFlow/1.0' }
-            });
-
-            const meta = metaResponse.data.data.games[0];
-            
             const newEntry = {
-                id: `${game.type.toUpperCase()}-${game.id}`,
+                id: `SWITCH-${realId}`,
                 title: game.name,
-                platform: game.type === 'Switch' ? 'Nintendo Switch' : 'Other',
-                genre: meta.genres ? meta.genres.map(g => g.name).join(', ') : 'Action',
-                fileSize: "N/A",
-                cover: coverLocal || "",
-                bg: bgLocal || "",
-                type: game.type,
-                romUrl: `/roms/${game.name.toLowerCase().replace(/ /g, '_')}.nsp`
+                platform: 'Nintendo Switch',
+                genre: 'Action-Adventure',
+                fileSize: 'N/A',
+                cover: coverLocal || '',
+                bg: bgLocal || '',
+                type: 'Switch',
+                romUrl: `/roms/${game.name.toLowerCase().replace(/[^a-z0-9]/g, '_')}.nsp`
             };
 
             currentData.push(newEntry);
-            console.log(`✅ Added ${game.name}`);
+            console.log(`✅ Correctly added Switch version of ${game.name}`);
 
         } catch (e) {
             console.error(`❌ Error processing ${game.name}:`, e.message);
@@ -116,3 +128,4 @@ async function run() {
 }
 
 run();
+

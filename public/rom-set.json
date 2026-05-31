@@ -64,5 +64,38 @@
     "bg": "/media/backgrounds/60766_bg.jpg",
     "type": "Switch",
     "romUrl": "/roms/smash.nsp"
+  },
+  {
+    "id": "SWITCH-114116",
+    "title": "The Legend of Zelda: Tears of the Kingdom",
+    "platform": "Nintendo Switch",
+    "genre": "Action-Adventure",
+    "fileSize": "N/A",
+    "cover": "/media/covers/114116_portrait.jpg",
+    "bg": "/media/backgrounds/114116_bg.jpg",
+    "type": "Switch",
+    "romUrl": "/roms/the_legend_of_zelda__tears_of_the_kingdom.nsp"
+  },
+  {
+    "id": "SWITCH-56105",
+    "title": "Hollow Knight",
+    "platform": "Nintendo Switch",
+    "genre": "Action-Adventure",
+    "fileSize": "N/A",
+    "cover": "/media/covers/56105_portrait.jpg",
+    "bg": "/media/backgrounds/56105_bg.jpg",
+    "type": "Switch",
+    "romUrl": "/roms/hollow_knight.nsp"
+  },
+  {
+    "id": "SWITCH-51277",
+    "title": "Stardew Valley",
+    "platform": "Nintendo Switch",
+    "genre": "Action-Adventure",
+    "fileSize": "N/A",
+    "cover": "/media/covers/51277_portrait.jpg",
+    "bg": "/media/backgrounds/51277_bg.jpg",
+    "type": "Switch",
+    "romUrl": "/roms/stardew_valley.nsp"
   }
 ]
