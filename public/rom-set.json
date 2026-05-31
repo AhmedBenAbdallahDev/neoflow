@@ -77,25 +77,25 @@
     "romUrl": "/roms/the_legend_of_zelda__tears_of_the_kingdom.nsp"
   },
   {
-    "id": "SWITCH-56105",
-    "title": "Hollow Knight",
+    "id": "SWITCH-60770",
+    "title": "Super Mario Party",
     "platform": "Nintendo Switch",
     "genre": "Action-Adventure",
     "fileSize": "N/A",
-    "cover": "/media/covers/56105_portrait.jpg",
-    "bg": "/media/backgrounds/56105_bg.jpg",
+    "cover": "/media/covers/60770_portrait.jpg",
+    "bg": "/media/backgrounds/60770_bg.jpg",
     "type": "Switch",
-    "romUrl": "/roms/hollow_knight.nsp"
+    "romUrl": "/roms/super_mario_party.nsp"
   },
   {
-    "id": "SWITCH-51277",
-    "title": "Stardew Valley",
+    "id": "SWITCH-93208",
+    "title": "Mario Party Superstars",
     "platform": "Nintendo Switch",
     "genre": "Action-Adventure",
     "fileSize": "N/A",
-    "cover": "/media/covers/51277_portrait.jpg",
-    "bg": "/media/backgrounds/51277_bg.jpg",
+    "cover": "/media/covers/93208_portrait.jpg",
+    "bg": "/media/backgrounds/93208_bg.jpg",
     "type": "Switch",
-    "romUrl": "/roms/stardew_valley.nsp"
+    "romUrl": "/roms/mario_party_superstars.nsp"
   }
 ]

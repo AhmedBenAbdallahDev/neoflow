@@ -10,9 +10,8 @@ const BASE_URL = 'https://api.thegamesdb.net/v1';
 const ROM_SET_PATH = path.join(process.cwd(), 'public', 'rom-set.json');
 
 const newGames = [
-    { name: "The Legend of Zelda: Tears of the Kingdom", type: "Switch" },
-    { name: "Hollow Knight", type: "Switch" },
-    { name: "Stardew Valley", type: "Switch" }
+    { name: "Super Mario Party", type: "Switch" },
+    { name: "Mario Party Superstars", type: "Switch" }
 ];
 
 async function downloadImage(url, folder, filename) {
